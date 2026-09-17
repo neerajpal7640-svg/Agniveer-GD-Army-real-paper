@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agniveer GD Mock Test - Designed by Neeraj Pal</title>
+<style>
+  :root {
+    --bg-primary: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #d97706;
+    --border: #e2e8f0;
+    --header-bg: #1e293b;
+    --header-text: #ffffff;
+    --card-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Theme Configurations */
+  [data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --border: #334155;
+    --header-bg: #090d16;
+    --header-text: #ffffff;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  [data-theme="military"] {
+    --bg-primary: #141c14;
+    --bg-card: #1e2b1e;
+    --text-main: #f0fdf4;
+    --text-muted: #86efac;
+    --accent: #15803d;
+    --accent-hover: #166534;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --warning: #eab308;
+    --border: #2d402d;
+    --header-bg: #0a120a;
+    --header-text: #fbbf24;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  [data-theme="navy"] {
+    --bg-primary: #0b132b;
+    --bg-card: #1c2541;
+    --text-main: #edf2f4;
+    --text-muted: #8d99ae;
+    --accent: #48cae4;
+    --accent-hover: #00b4d8;
+    --success: #06d6a0;
+    --danger: #ef476f;
+    --warning: #ffd166;
+    --border: #3a506b;
+    --header-bg: #0b132b;
+    --header-text: #48cae4;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  * {
+    box-sizing: border-box;
+    transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.5;
+    padding-bottom: 40px;
+  }
+
+  header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .creator-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .creator-badge b {
+    color: #f59e0b;
+  }
+
+  .subtitle {
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.85;
+  }
+
+  .top-bar-btns {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .icon-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-success { background: var(--success); color: white; }
+  .btn-danger { background: var(--danger); color: white; }
+  .btn-gray { background: var(--border); color: var(--text-main); }
+
+  .dayGrid {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(110px, 1fr) );
+    gap: 12px;
+  }
+
+  .day-btn {
+    padding: 16px 10px;
+    border-radius: 12px;
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .day-btn.completed {
+    background: rgba(22, 163, 74, 0.15);
+    border-color: var(--success);
+    color: var(--success);
+  }
+
+  .day-btn.locked {
+    background: var(--border);
+    border-color: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .day-btn .score-tag {
+    font-size: 11px;
+    display: block;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  .option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: var(--bg-primary);
+    border: 2px solid var(--border);
+    padding: 14px 18px;
+    margin: 10px 0;
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .option:hover:not(.disabled) {
+    border-color: var(--accent);
+  }
+
+  .option.selected {
+    border-color: var(--accent);
+    background: rgba(37, 99, 235, 0.12);
+  }
+
+  .option.correct {
+    border-color: var(--success) !important;
+    background: rgba(22, 163, 74, 0.15) !important;
+    color: var(--success) !important;
+    font-weight: bold;
+  }
+
+  .option.wrong {
+    border-color: var(--danger) !important;
+    background: rgba(220, 38, 38, 0.15) !important;
+    color: var(--danger) !important;
+  }
+
+  .progress-container {
+    height: 12px;
+    background: var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 20px;
+  }
+
+  .result-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 8px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+  }
+
+  .result-circle .percent {
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  .result-circle .label {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .hide { display: none !important; }
+
+  /* Modal Styling */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 15px;
+  }
+
+  .modal {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 480px;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid var(--border);
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .setting-row label {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  /* Toggle Switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+  }
+
+  .switch input { opacity: 0; width: 0; height: 0; }
+
+  .slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc; transition: .4s; border-radius: 34px;
+  }
+
+  .slider:before {
+    position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px;
+    background-color: white; transition: .4s; border-radius: 50%;
+  }
+
+  input:checked + .slider { background-color: var(--success); }
+  input:checked + .slider:before { transform: translateX(24px); }
+
+  .rule-box {
+    background: rgba(37, 99, 235, 0.08);
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  @media(max-width: 500px) {
+    header h1 { font-size: 20px; }
+    .top-bar-btns { position: static; margin-top: 10px; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🪖 Agniveer GD Mock Test Series</h1>
+  <div class="creator-badge">
+    Developed & Created by <b>Neeraj Pal</b>
+  </div>
+  <div class="subtitle">🎯 90 Days Course • 4500 Comprehensive Practice Questions</div>
+  
+  <div class="top-bar-btns">
+    <button class="icon-btn" onclick="toggleSettingsModal()" title="Settings">⚙️</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- RULES CARD -->
+  <div class="card" id="welcomeCard">
+    <div class="card-title">
+      <span>📋 परीक्षा निर्देश (Test Instructions)</span>
+    </div>
+    <div class="rule-box">
+      <b>🔒 Unlock Rule:</b> अगली सेट्स/डे (Next Day) अनलॉक करने के लिए वर्तमान डे टेस्ट में कम से कम <b>70% (35 / 50 अंक)</b> प्राप्त करना अनिवार्य है। यदि आपके अंक 70% से कम होंगे, तो अगला डे अनलॉक नहीं होगा।
+    </div>
+    <div style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+      • कुल दिवस: <b>90 दिन</b><br>
+      • प्रति दिन प्रश्न: <b>50 प्रश्न</b> (कुल 4500 प्रश्न)<br>
+      • समय सीमा: <b>30 मिनट</b><br>
+       • नेगेटिव मार्किंग: <b>हर गलत उत्तर पर 0.5 अंक</b><br>
+      • डेवलपर क्रेडिट: <b>Neeraj Pal</b>
+    </div>
+  </div>
+
+  <!-- DASHBOARD / DAY SELECTOR -->
+  <div class="card" id="dashboardCard">
+    <div class="card-title">
+      <span>🗓️ 90 Days Selection Grid</span>
+      <span style="font-size: 13px; font-weight: normal; color: var(--text-muted);" id="overallProgressText">Progress: 1 / 90 Days</span>
+    </div>
+    <div class="dayGrid" id="dayGrid">
+      <!-- Generated via JavaScript -->
+    </div>
+  </div>
+
+  <!-- QUIZ INTERFACE -->
+  <div class="card hide" id="quizCard">
+    <div class="card-title">
+      <span id="quizTitle">Day 1 Test</span>
+      <button class="btn btn-gray" style="padding: 6px 12px; font-size: 13px;" onclick="quitQuiz()">Exit Test</button>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: bold; color: var(--text-muted);">
+      <span id="questionCounter">Question 1 of 50</span>
+      <span id="scoreTracker">Score: 0</span>
+      <span id="timerDisplay" style="font-weight: 800; color: var(--danger);">⏱️ 30:00</span>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div style="font-size: 18px; font-weight: 700; margin: 20px 0 15px 0;" id="questionText">
+      <!-- Question text -->
+    </div>
+
+    <div id="optionsContainer">
+      <!-- Option buttons -->
+    </div>
+
+    <div style="display: flex; justify-content: space-between; margin-top: 25px;">
+      <button class="btn btn-gray" id="prevBtn" onclick="prevQuestion()">⬅️ Previous</button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next ➡️</button>
+    </div>
+  </div>
+
+  <!-- RESULT CARD -->
+  <div class="card hide" id="resultCard">
+    <div class="card-title">
+      <span>🎉 Test Completion Result</span>
+    </div>
+
+    <div class="result-circle" id="resultCircle">
+      <div class="percent" id="resultPercent">0%</div>
+      <div class="label" id="resultLabel">SCORE</div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h3 id="resultStatus" style="margin: 5px 0; font-size: 22px;">Passed!</h3>
+      <p id="resultMessage" style="color: var(--text-muted); margin: 0; font-size: 15px;"></p>
+    </div>
+
+    <div class="rule-box" id="unlockNotice" style="text-align: center;">
+      <!-- Dynamic text based on score -->
+    </div>
+
+    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+      <button class="btn btn-gray" onclick="showDashboard()">📋 Go to Days</button>
+      <button class="btn btn-primary" id="retryBtn" onclick="retryTest()">🔄 Retake Test</button>
+      <button class="btn btn-success hide" id="nextDayBtn" onclick="startNextDay()">➡️ Next Day Test</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-overlay hide" id="settingsModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 style="margin: 0; font-size: 20px;">⚙️ Settings & Options</h3>
+      <button class="icon-btn" style="background: none; color: var(--text-main); font-size: 24px;" onclick="toggleSettingsModal()">✕</button>
+    </div>
+
+    <div class="setting-row">
+      <label for="themeSelect">🎨 App Theme Style:</label>
+      <select id="themeSelect" onchange="changeTheme(this.value)">
+        <option value="light">Light Classic</option>
+        <option value="dark">Dark Charcoal</option>
+        <option value="military">Military Green 🪖</option>
+        <option value="navy">Navy Blue ⚓</option>
+      </select>
+    </div>
+
+    <div class="setting-row">
+      <label>🔊 Audio Sound Effects:</label>
+      <label class="switch">
+        <input type="checkbox" id="soundToggle" onchange="toggleSound(this.checked)" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row" style="border-bottom: none; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 10px;">
+      <label style="color: var(--danger);">⚠️ Reset Progress:</label>
+      <div style="font-size: 13px; color: var(--text-muted);">
+        रिसेट करने से आपके द्वारा अनलॉक किए गए सभी दिन और टेस्ट स्कोर शून्य (Reset) हो जाएंगे।
+      </div>
+      <button class="btn btn-danger" style="width: 100%; margin-top: 5px;" onclick="resetAllProgress()">
+        🗑️ Reset All Test Progress
+      </button>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 12px;">
+      Agniveer GD App Created by <b>Neeraj Pal</b>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ==========================================
+  // QUESTION GENERATOR ENGINE (4500 QUESTIONS)
+  // ==========================================
+  // Comprehensive question bank templates across GD Subjects: General Knowledge, General Science, Mathematics, Reasoning.
+  
+  const subjects = {
+    gk: [
+      { q: "भारतीय थल सेना दिवस (Indian Army Day) कब मनाया जाता है?", opts: ["15 जनवरी", "26 जनवरी", "15 अगस्त", "8 अक्टूबर"], ans: 0 },
+      { q: "भारत का राष्ट्रीय खेल कौन सा है?", opts: ["हॉकी", "क्रिकेट", "फुटबॉल", "कबड्डी"], ans: 0 },
+      { q: "भारत के प्रथम राष्ट्रपति कौन थे?", opts: ["डॉ. राजेंद्र प्रसाद", "पंडित जवाहरलाल नेहरू", "सरदार पटेल", "डॉ. एस. राधाकृष्णन"], ans: 0 },
+      { q: "'जय जवान, जय किसान' का नारा किसने दिया था?", opts: ["लाल बहादुर शास्त्री", "महात्मा गांधी", "सुभाष चंद्र बोस", "जवाहरलाल नेहरू"], ans: 0 },
+      { q: "काजीरंगा राष्ट्रीय उद्यान किस राज्य में स्थित है?", opts: ["असम", "उत्तराखंड", "मध्य प्रदेश", "राजस्थान"], ans: 0 },
+      { q: "भारत का सर्वोच्च सैन्य सम्मान कौन सा है?", opts: ["परमवीर चक्र", "महावीर चक्र", "वीर चक्र", "अशोक चक्र"], ans: 0 },
+      { q: "भारत छोड़ो आंदोलन किस वर्ष शुरू हुआ था?", opts: ["1942", "1920", "1930", "1947"], ans: 0 },
+      { q: "भारत का राष्ट्रीय पशु कौन सा है?", opts: ["बाघ", "शेर", "हाथी", "चीता"], ans: 0 },
+      { q: "गेटवे ऑफ इंडिया कहाँ स्थित है?", opts: ["मुंबई", "नई दिल्ली", "कोलकाता", "चेन्नई"], ans: 0 },
+      { q: "भारत की पहली महिला प्रधानमंत्री कौन थीं?", opts: ["इंदिरा गांधी", "सरोजिनी नायडू", "प्रतिभा पाटिल", "सुचेता कृपलानी"], ans: 0 },
+      { q: "जलियावाला बाग हत्याकांड कहाँ हुआ था?", opts: ["अमृतसर", "लाहौर", "दिल्ली", "जलंधर"], ans: 0 },
+      { q: "करो या मरो का नारा किसने दिया?", opts: ["महात्मा गांधी", "सुभाष चंद्र बोस", "भगत सिंह", "चंद्रशेखर आजाद"], ans: 0 },
+      { q: "कुतुब मीनार कहाँ स्थित है?", opts: ["दिल्ली", "आगरा", "जयपुर", "हैदराबाद"], ans: 0 },
+      { q: "भारत का पेरिस किस शहर को कहा जाता है?", opts: ["जयपुर", "उदयपुर", "कोलकाता", "मुंबई"], ans: 0 },
+      { q: "अर्थशास्त्र पुस्तक के लेखक कौन हैं?", opts: ["चाणक्य (कौटिल्य)", "मेगस्थनीज", "कालिदास", "बाणभट्ट"], ans: 0 },
+      { q: "श्रीनगर किस नदी के तट पर स्थित है?", opts: ["झेलम", "चिनाब", "रावी", "सतलुज"], ans: 0 },
+      { q: "भारत के राष्ट्रीय गीत 'वंदे मातरम' के रचयिता कौन हैं?", opts: ["बंकिम चंद्र चटर्जी", "रवींद्रनाथ टैगोर", "शरद चंद्र", "इकबाल"], ans: 0 },
+      { q: "डिस्कवरी ऑफ इंडिया पुस्तक किसने लिखी?", opts: ["जवाहरलाल नेहरू", "महात्मा गांधी", "बाल गंगाधर तिलक", "सुभाष चंद्र बोस"], ans: 0 },
+      { q: "भारत का सबसे बड़ा राज्य (क्षेत्रफल में) कौन सा है?", opts: ["राजस्थान", "मध्य प्रदेश", "उत्तर प्रदेश", "महाराष्ट्र"], ans: 0 },
+      { q: "चारमीनार कहाँ स्थित है?", opts: ["हैदराबाद", "बेंगलुरु", "चेन्नई", "मैसूर"], ans: 0 }
+    ],
+    science: [
+      { q: "जल का रासायनिक सूत्र (Chemical Formula) क्या है?", opts: ["H2O", "CO2", "NaCl", "O2"], ans: 0 },
+      { q: "मानव शरीर में कुल कितनी हड्डियाँ होती हैं?", opts: ["206", "306", "106", "208"], ans: 0 },
+      { q: "बल (Force) का SI मात्रक क्या है?", opts: ["न्यूटन", "जूल", "वाट", "पास्कल"], ans: 0 },
+      { q: "विटामिन C का सबसे समृद्ध स्रोत क्या है?", opts: ["आंवला", "दूध", "गेहूं", "चावल"], ans: 0 },
+      { q: "प्रकाश वर्ष (Light Year) किसकी इकाई है?", opts: ["दूरी", "समय", "प्रकाश की तीव्रता", "द्रव्यमान"], ans: 0 },
+      { q: "कार्य (Work) करने की क्षमता को क्या कहते हैं?", opts: ["ऊर्जा", "बल", "शक्ति", "दाब"], ans: 0 },
+      { q: "सौरमंडल का सबसे बड़ा ग्रह कौन सा है?", opts: ["बृहस्पति", "मंगल", "शुक्र", "शनि"], ans: 0 },
+      { q: "हीमोग्लोबिन में कौन सा तत्व पाया जाता है?", opts: ["लोहा (Iron)", "तांबा", "जस्ता", "कैल्शियम"], ans: 0 },
+      { q: "शुद्ध जल का pH मान कितना होता है?", opts: ["7", "6", "8", "0"], ans: 0 },
+      { q: "विद्युत धारा (Electric Current) का मात्रक क्या है?", opts: ["एम्पीयर", "वोल्ट", "ओम", "वाट"], ans: 0 },
+      { q: "वायुमंडल में सबसे प्रचुर मात्रा में कौन सी गैस पाई जाती है?", opts: ["नाइट्रोजन", "ऑक्सीजन", "कार्बन डाइऑक्साइड", "हीलियम"], ans: 0 },
+      { q: "गति के नियमों की खोज किसने की थी?", opts: ["न्यूटन", "गैलीलियो", "आइंस्टीन", "एडिसन"], ans: 0 },
+      { q: "पेंसिल में किस पदार्थ का उपयोग किया जाता है?", opts: ["ग्रेफाइट", "हीरा", "कोयला", "शीशा"], ans: 0 },
+      { q: "मानव हृदय में कितने कोष्ठक (Chambers) होते हैं?", opts: ["4", "2", "3", "6"], ans: 0 },
+      { q: "पानी किस तापमान पर उबलता है?", opts: ["100°C", "0°C", "50°C", "80°C"], ans: 0 },
+      { q: "शरीर का कौन सा अंग रक्त को शुद्ध करता है?", opts: ["गुर्दा (Kidney)", "हृदय", "फेफड़े", "यकृत"], ans: 0 },
+      { q: "एलपीजी (LPG) गैस में मुख्य रूप से कौन सी गैस होती है?", opts: ["ब्यूटेन और प्रोपेन", "मीथेन", "इथेन", "हाइड्रोजन"], ans: 0 },
+      { q: "आत्महत्या की थैली (Suicide Bag) किसे कहा जाता है?", opts: ["लाइसोसोम", "राइबोसोम", "माइटोकॉन्ड्रिया", "गोल्जीकाय"], ans: 0 },
+      { q: "सूर्य के प्रकाश से हमें कौन सा विटामिन मिलता है?", opts: ["विटामिन D", "विटामिन A", "विटामिन C", "विटामिन B"], ans: 0 },
+      { q: "ध्वनि की चाल सबसे अधिक किसमें होती है?", opts: ["ठोस (Steel)", "द्रव", "गैस", "निर्वात"], ans: 0 }
+    ],
+    math: [
+      { template: (a, b) => `यदि एक संख्या का ${a}% ${b} है, तो वह संख्या क्या होगी?`, calc: (a, b) => (b * 100) / a },
+      { template: (a, b) => `(${a} + ${b}) ÷ 5 का मान क्या होगा?`, calc: (a, b) => (a + b) / 5 },
+      { template: (a, b) => `यदि ${a} कलमों का मूल्य ₹${b} है, तो ${a*2} कलमों का मूल्य क्या होगा?`, calc: (a, b) => b * 2 },
+      { template: (a) => `${a} का वर्ग (${a}²) क्या होता है?`, calc: (a) => a * a },
+      { template: (a) => `√${a*a} का मान क्या होगा?`, calc: (a) => a },
+      { template: (a, b) => `${a} का ${b}% कितना होगा?`, calc: (a, b) => (a * b) / 100 },
+      { template: (a, b) => `(a + b)² का मान ज्ञात करें जब a=${a}, b=${b}:`, calc: (a, b) => (a + b) * (a + b) }
+    ],
+    reasoning: [
+      { q: "दिन का संबंध रात से है, तो सफेद का संबंध किससे होगा?", opts: ["काला", "लाल", "हरा", "नीला"], ans: 0 },
+      { q: "उत्तर का संबंध दक्षिण से है, तो पूर्व का संबंध किससे होगा?", opts: ["पश्चिम", "उत्तर-पूर्व", "दक्षिण-पश्चिम", "मध्य"], ans: 0 },
+      { q: "कलम : लिखना :: चाकू : ?", opts: ["काटना", "छीलना", "मारना", "पकड़ना"], ans: 0 },
+      { q: "डॉक्टर : अस्पताल :: शिक्षक : ?", opts: ["विद्यालय", "घर", "कार्यालय", "बाजार"], ans: 0 },
+      { q: "गाय : बछड़ा :: बकरी : ?", opts: ["मेमना", "पिल्ला", "बछड़ा", "चूजा"], ans: 0 },
+      { q: "आंख : देखना :: कान : ?", opts: ["सुनना", "सूंघना", "बोलना", "चबाना"], ans: 0 },
+      { q: "पंखा : हवा :: दिया : ?", opts: ["प्रकाश", "तेल", "बाती", "ऊष्मा"], ans: 0 }
+    ]
+  };
+
+  // Generate 4,500 questions deterministically across 90 Days (50 Questions per Day)
+  function getQuestionsForDay(dayNumber) {
+    const list = [];
+    const seed = dayNumber * 100;
+
+    for (let i = 1; i <= 50; i++) {
+      const qNum = (dayNumber - 1) * 50 + i;
+      const typeIndex = (i - 1) % 4; // Alternate GK, Science, Math, Reasoning
+
+      if (typeIndex === 0) {
+        // GK
+        const raw = subjects.gk[(seed + i) % subjects.gk.length];
+        list.push({
+          q: `${qNum}. ${raw.q}`,
+          opts: [...raw.opts],
+          ans: raw.ans
+        });
+      } else if (typeIndex === 1) {
+        // Science
+        const raw = subjects.science[(seed + i) % subjects.science.length];
+        list.push({
+          q: `${qNum}. ${raw.q}`,
+          opts: [...raw.opts],
+          ans: raw.ans
+        });
+      } else if (typeIndex === 2) {
+        // Math Dynamic
+        const a = 10 + ((seed + i * 3) % 40);
+        const b = 5 + ((seed + i * 2) % 20);
+        const templateObj = subjects.math[(i) % subjects.math.length];
+        
+        let questionStr = "";
+        let correctVal = 0;
+
+        if (templateObj.template.length === 1) {
+          questionStr = templateObj.template(a);
+          correctVal = templateObj.calc(a);
+        } else {
+          questionStr = templateObj.template(a * 5, b * 10);
+          correctVal = templateObj.calc(a * 5, b * 10);
+        }
+
+        const opts = [
+          `${correctVal}`,
+          `${correctVal + 5}`,
+          `${Math.max(1, correctVal - 10)}`,
+          `${correctVal + 12}`
+        ];
+
+        list.push({
+          q: `${qNum}. ${questionStr}`,
+          opts: opts,
+          ans: 0
+        });
+      } else {
+        // Reasoning
+        const raw = subjects.reasoning[(seed + i) % subjects.reasoning.length];
+        list.push({
+          q: `${qNum}. ${raw.q}`,
+          opts: [...raw.opts],
+          ans: raw.ans
+        });
+      }
+    }
+    return list;
+  }
+
+  // ==========================================
+  // APP STATE & STORAGE
+  // ==========================================
+  let appData = {
+    unlockedDays: 1, // Only Day 1 unlocked by default
+    scores: {},      // Scores per day { 1: 40, 2: 45 }
+    theme: 'light',
+    sound: true
+  };
+
+  let currentDay = 1;
+  let currentQuestions = [];
+  let currentQuestionIndex = 0;
+  let userAnswers = {};
+  let currentScore = 0;
+  let testTimer = null;
+  let remainingSeconds = 30 * 60;
+  let testFinished = false;
+
+  // Web Audio Synth for Sounds (Zero External Files Required)
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  function playSound(type) {
+    if (!appData.sound) return;
+    try {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      if (type === 'click') {
+        osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.05);
+      } else if (type === 'correct') {
+        osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.15);
+      } else if (type === 'wrong') {
+        osc.frequency.setValueAtTime(250, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.2);
+      } else if (type === 'pass') {
+        osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(1000, audioCtx.currentTime + 0.3);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.35);
+      }
+    } catch(e){}
+  }
+
+  // Save / Load Progress
+  function loadProgress() {
+    const saved = localStorage.getItem('agniveer_neeraj_pal_app');
+    if (saved) {
+      try {
+        appData = JSON.parse(saved);
+      } catch(e){}
+    }
+    applyTheme(appData.theme || 'light');
+    document.getElementById('themeSelect').value = appData.theme || 'light';
+    document.getElementById('soundToggle').checked = appData.sound !== false;
+  }
+
+  function saveProgress() {
+    localStorage.setItem('agniveer_neeraj_pal_app', JSON.stringify(appData));
+  }
+
+  function renderDashboard() {
+    const grid = document.getElementById('dayGrid');
+    grid.innerHTML = '';
+
+    for (let day = 1; day <= 90; day++) {
+      const btn = document.createElement('div');
+      const isUnlocked = day <= appData.unlockedDays;
+      const score = appData.scores[day];
+
+      let btnClass = 'day-btn';
+      let scoreText = '🔒 Locked';
+
+      if (isUnlocked) {
+        if (score !== undefined) {
+          btnClass += ' completed';
+          scoreText = `✅ ${score}/50 (${Math.round((score/50)*100)}%)`;
+        } else {
+          scoreText = '🔓 Ready';
+        }
+      } else {
+        btnClass += ' locked';
+      }
+
+      btn.className = btnClass;
+      btn.innerHTML = `
+        <div>Day ${day}</div>
+        <span class="score-tag">${scoreText}</span>
+      `;
+
+      if (isUnlocked) {
+        btn.onclick = () => startTest(day);
+      }
+
+      grid.appendChild(btn);
+    }
+
+    document.getElementById('overallProgressText').innerText = `Progress: ${appData.unlockedDays} / 90 Days Unlocked`;
+  }
+
+  // ==========================================
+  // 30-MINUTE TEST TIMER
+  // ==========================================
+  function updateTimerDisplay() {
+    const el = document.getElementById('timerDisplay');
+    if (!el) return;
+    const minutes = Math.floor(remainingSeconds / 60);
+    const seconds = remainingSeconds % 60;
+    el.innerText = `⏱️ ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (remainingSeconds <= 60) {
+      el.style.color = 'var(--danger)';
+    } else {
+      el.style.color = 'var(--text-main)';
+    }
+  }
+
+  function startTimer() {
+    clearInterval(testTimer);
+    remainingSeconds = 30 * 60;
+    testFinished = false;
+    updateTimerDisplay();
+
+    testTimer = setInterval(() => {
+      if (testFinished) return;
+      remainingSeconds--;
+
+      if (remainingSeconds <= 0) {
+        remainingSeconds = 0;
+        updateTimerDisplay();
+        clearInterval(testTimer);
+        testFinished = true;
+        alert("⏰ 30 मिनट पूरे हो गए हैं। आपका टेस्ट अपने आप सबमिट हो रहा है।");
+        finishTest(true);
+        return;
+      }
+
+      updateTimerDisplay();
+    }, 1000);
+  }
+
+  function startTest(day) {
+    playSound('click');
+    currentDay = day;
+    currentQuestions = getQuestionsForDay(day);
+    currentQuestionIndex = 0;
+    userAnswers = {};
+    currentScore = 0;
+    startTimer();
+
+    document.getElementById('welcomeCard').classList.add('hide');
+    document.getElementById('dashboardCard').classList.add('hide');
+    document.getElementById('resultCard').classList.add('hide');
+    document.getElementById('quizCard').classList.remove('hide');
+
+    document.getElementById('quizTitle').innerText = `Day ${day} Test (${(day-1)*50 + 1} - ${day*50} Questions)`;
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = currentQuestions[currentQuestionIndex];
+    document.getElementById('questionCounter').innerText = `Question ${currentQuestionIndex + 1} of 50`;
+    
+    // Update Score Live Tracker
+    let liveScore = 0;
+    Object.keys(userAnswers).forEach(idx => {
+      if (userAnswers[idx] === currentQuestions[idx].ans) {
+        liveScore += 1;
+      } else {
+        liveScore -= 0.5;
+      }
+    });
+    document.getElementById('scoreTracker').innerText =
+      `Score: ${liveScore.toFixed(1)}`;
+
+    // Update Progress Bar
+    const prog = ((currentQuestionIndex + 1) / 50) * 100;
+    document.getElementById('progressBar').style.width = `${prog}%`;
+
+    document.getElementById('questionText').innerText = q.q;
+
+    const optsContainer = document.getElementById('optionsContainer');
+    optsContainer.innerHTML = '';
+
+    const selectedOption = userAnswers[currentQuestionIndex];
+
+    q.opts.forEach((optText, i) => {
+      const optBtn = document.createElement('button');
+      optBtn.className = 'option';
+      optBtn.innerText = `${String.fromCharCode(65 + i)}. ${optText}`;
+
+      if (selectedOption !== undefined) {
+        optBtn.classList.add('disabled');
+        if (i === q.ans) {
+          optBtn.classList.add('correct');
+        } else if (i === selectedOption) {
+          optBtn.classList.add('wrong');
+        }
+      } else {
+        optBtn.onclick = () => selectOption(i);
+      }
+
+      optsContainer.appendChild(optBtn);
+    });
+
+    document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+    if (currentQuestionIndex === 49) {
+      document.getElementById('nextBtn').innerText = 'Submit Test 🎯';
+    } else {
+      document.getElementById('nextBtn').innerText = 'Next ➡️';
+    }
+  }
+
+  function selectOption(optionIndex) {
+    if (userAnswers[currentQuestionIndex] !== undefined) return;
+
+    userAnswers[currentQuestionIndex] = optionIndex;
+    const correct = currentQuestions[currentQuestionIndex].ans;
+
+    if (optionIndex === correct) {
+      playSound('correct');
+    } else {
+      playSound('wrong');
+    }
+
+    renderQuestion();
+  }
+
+  function nextQuestion() {
+    playSound('click');
+    if (currentQuestionIndex < 49) {
+      currentQuestionIndex++;
+      renderQuestion();
+    } else {
+      finishTest();
+    }
+  }
+
+  function prevQuestion() {
+    playSound('click');
+    if (currentQuestionIndex > 0) {
+      currentQuestionIndex--;
+      renderQuestion();
+    }
+  }
+
+  function finishTest(autoSubmitted = false) {
+    if (testFinished && !autoSubmitted) return;
+    testFinished = true;
+    clearInterval(testTimer);
+
+    // Calculate score:
+    // Correct = +1, Wrong = -0.5, Unattempted = 0
+    let correctCount = 0;
+    let wrongCount = 0;
+    let unattemptedCount = 0;
+
+    for (let i = 0; i < 50; i++) {
+      if (userAnswers[i] === undefined) {
+        unattemptedCount++;
+      } else if (userAnswers[i] === currentQuestions[i].ans) {
+        correctCount++;
+      } else {
+        wrongCount++;
+      }
+    }
+
+    const score = correctCount - (wrongCount * 0.5);
+    const percent = Math.round((score / 50) * 100);
+    const passed = percent >= 70; // 70% threshold rule
+
+    appData.scores[currentDay] = Math.max(
+      appData.scores[currentDay] || -Infinity,
+      score
+    );
+
+    const unlockNotice = document.getElementById('unlockNotice');
+    const nextDayBtn = document.getElementById('nextDayBtn');
+
+    if (passed) {
+      playSound('pass');
+      if (currentDay === appData.unlockedDays && appData.unlockedDays < 90) {
+        appData.unlockedDays++;
+      }
+      saveProgress();
+
+      document.getElementById('resultStatus').innerText = "🎉 बधाई हो! आप पास हो गए!";
+      document.getElementById('resultStatus').style.color = "var(--success)";
+      document.getElementById('resultMessage').innerText =
+        `सही: ${correctCount} | गलत: ${wrongCount} | छोड़े: ${unattemptedCount} | कुल अंक: ${score.toFixed(1)} / 50 (${percent}%)`;
+      unlockNotice.innerHTML =
+        `✅ <b>70% की शर्त पूरी हुई!</b> आपका अगला डे (${currentDay < 90 ? currentDay + 1 : 90}) अब अनलॉक हो गया है।`;
+      unlockNotice.style.borderColor = "var(--success)";
+
+      if (currentDay < 90) {
+        nextDayBtn.classList.remove('hide');
+      } else {
+        nextDayBtn.classList.add('hide');
+      }
+    } else {
+      playSound('wrong');
+      saveProgress();
+
+      document.getElementById('resultStatus').innerText =
+        "❌ प्रयास अधूरा रहा (Failed)";
+      document.getElementById('resultStatus').style.color = "var(--danger)";
+      document.getElementById('resultMessage').innerText =
+        `सही: ${correctCount} | गलत: ${wrongCount} | छोड़े: ${unattemptedCount} | कुल अंक: ${score.toFixed(1)} / 50 (${percent}%)`;
+      unlockNotice.innerHTML =
+        `⚠️ <b>अगला डे अनलॉक नहीं हुआ!</b> सही उत्तर = +1 अंक, गलत उत्तर = -0.5 अंक, छोड़ा हुआ = 0 अंक। अगला दिन अनलॉक करने के लिए कम से कम <b>70% (35/50)</b> अंक आवश्यक हैं।`;
+      unlockNotice.style.borderColor = "var(--danger)";
+      nextDayBtn.classList.add('hide');
+    }
+
+    document.getElementById('resultPercent').innerText = `${percent}%`;
+    document.getElementById('resultCircle').style.borderColor =
+      passed ? 'var(--success)' : 'var(--danger)';
+
+    document.getElementById('quizCard').classList.add('hide');
+    document.getElementById('resultCard').classList.remove('hide');
+  }
+
+  function quitQuiz() {
+    if (confirm("क्या आप वाकई टेस्ट छोड़ना चाहते हैं?")) {
+      clearInterval(testTimer);
+      testFinished = true;
+      showDashboard();
+    }
+  }
+
+  function retryTest() {
+    startTest(currentDay);
+  }
+
+  function startNextDay() {
+    if (currentDay < 90) {
+      startTest(currentDay + 1);
+    }
+  }
+
+  function showDashboard() {
+    playSound('click');
+    document.getElementById('quizCard').classList.add('hide');
+    document.getElementById('resultCard').classList.add('hide');
+    document.getElementById('welcomeCard').classList.remove('hide');
+    document.getElementById('dashboardCard').classList.remove('hide');
+    renderDashboard();
+  }
+
+  // ==========================================
+  // SETTINGS, THEME & RESET LOGIC
+  // ==========================================
+  function toggleSettingsModal() {
+    playSound('click');
+    const modal = document.getElementById('settingsModal');
+    modal.classList.toggle('hide');
+  }
+
+  function changeTheme(themeName) {
+    appData.theme = themeName;
+    applyTheme(themeName);
+    saveProgress();
+  }
+
+  function applyTheme(themeName) {
+    document.documentElement.setAttribute('data-theme', themeName);
+  }
+
+  function toggleSound(enabled) {
+    appData.sound = enabled;
+    saveProgress();
+  }
+
+  function resetAllProgress() {
+    if (confirm("⚠️ क्या आप निश्चित हैं कि आप अपना संपूर्ण टेस्ट प्रोग्रेस रिसेट करना चाहते हैं? सभी अनलॉक दिन और स्कोर हटा दिए जाएंगे।")) {
+      appData.unlockedDays = 1;
+      appData.scores = {};
+      saveProgress();
+      toggleSettingsModal();
+      showDashboard();
+      alert("✅ आपका प्रोग्रेस सफलतापूर्वक रिसेट कर दिया गया है।");
+    }
+  }
+
+  // INIT APP
+  window.onload = function() {
+    loadProgress();
+    renderDashboard();
+  };
+</script>
+</body>
+</html>
